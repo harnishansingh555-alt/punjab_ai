@@ -540,7 +540,33 @@ app.get("/api/test", async (_req, res) => {
 });
 
 
+app.post('/api/generate-image', async (req, res) => {
+    const { prompt } = req.body;
+    const apiKey = KEYS.horde; // आपके पास जो apiKey है
 
+    if (!prompt) {
+        return res.status(400).json({ error: "Prompt is required" });
+    }
+
+    try {
+        const response = await fetch('https://stablehorde.net/api/v2/generate/async', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'apikey': apiKey
+            },
+            body: JSON.stringify({
+                prompt: prompt,
+                params: { sampler_name: 'k_euler_a', steps: 30 }
+            })
+        });
+
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 app.use((req, res) => {
   if (req.path.startsWith("/api/")) return res.status(404).json({ error: "Not found." });
   res.status(404).sendFile(path.join(process.cwd(), "public", "404.html"));
