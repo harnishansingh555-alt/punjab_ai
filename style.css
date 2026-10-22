@@ -1,0 +1,22 @@
+:root{--field:#F2BE1A;--field-2:#FFD55A;--ink:#13202A;--leaf:#1E5B47;--leaf-2:#2A7A60;--paper:#FFFFFF;--mist:#EDF0EA;--line:#D5DAD2;--muted:#55616b;--radius:16px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Bricolage Grotesque","Noto Sans Gurmukhi",system-ui,sans-serif;color:var(--ink);background:var(--paper);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;overflow:hidden;background:rgba(255,255,255,.35)}
+.lang button{font:inherit;font-size:.92rem;font-weight:600;border:0;background:transparent;color:var(--ink);padding:6px 15px;cursor:pointer;transition:background .15s}
+.lang button:hover{background:rgba(19,32,42,.1)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--field)}
+.cta{font:inherit;font-weight:700;display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:var(--ink);color:var(--field);border:0;border-radius:14px;padding:13px 28px;cursor:pointer;transition:transform .15s,background .15s,box-shadow .15s}
+.cta:hover{background:var(--leaf);color:#fff;transform:translateY(-2px);box-shadow:0 8px 20px rgba(19,32,42,.2)}
+.cta.light{background:var(--field);color:var(--ink)}
+.cta.light:hover{background:#fff;color:var(--ink)}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--leaf);color:#fff;display:inline-grid;place-items:center;font-weight:700;font-size:.95rem;overflow:hidden;flex:none}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:8px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+.gfake{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#1f1f1f;border:1px solid #747775;border-radius:999px;padding:8px 18px;font-weight:600;font-size:.92rem;text-decoration:none;font-family:Roboto,Arial,sans-serif}
+.gfake:hover{background:#f3f6fc;color:#1f1f1f}
+
+.gmsg{font-size:.9rem;color:#8A1C10}
