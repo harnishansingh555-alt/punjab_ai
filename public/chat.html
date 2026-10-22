@@ -144,7 +144,11 @@ textarea{border-radius:18px;padding:12px 16px;background:#FBFAF6}
 @media (max-width:800px){.shell{padding:8px;gap:8px}.intro,.chat{border-radius:20px}.bar .btns button{padding:6px 10px;font-size:.82rem}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}}
 
-/* ---- live voice ---- */
+/* ---- image + live voice ---- */
+.imgbtn{border-radius:50%;width:48px;height:48px;padding:0;font-size:1.15rem;border:2px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer;font-family:inherit}
+.imgbtn[aria-pressed="true"]{background:var(--field);box-shadow:0 0 0 3px var(--ink)}
+.msg .genimg{display:block;max-width:100%;border-radius:12px;margin-top:10px}
+.msg .dl{display:inline-block;margin-top:8px;font-size:.88rem;font-weight:600;color:var(--leaf)}
 .msg .dl{display:inline-block;margin-top:8px;font-size:.88rem;font-weight:600;color:var(--leaf)}
 #liveBtn{font-weight:700}
 .live{position:absolute;inset:0;z-index:6;background:radial-gradient(circle at 50% 35%,#1E5B47,#0f2e25 72%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center}
@@ -175,8 +179,8 @@ html,body{height:100dvh}
 .row.user .copy{align-self:flex-end}
 .msg.bot{border-top-left-radius:6px}
 .msg.user{box-shadow:0 4px 14px rgba(30,91,71,.25)}
-.mic{width:46px;height:46px;flex:none;font-size:1.2rem;line-height:1;display:grid;place-items:center;transition:transform .15s,background .15s}
-.mic:hover{transform:scale(1.06);background:var(--mist)}
+.mic,.imgbtn{width:46px;height:46px;flex:none;font-size:1.2rem;line-height:1;display:grid;place-items:center;transition:transform .15s,background .15s}
+.mic:hover,.imgbtn:hover{transform:scale(1.06);background:var(--mist)}
 .send{flex:none;width:46px;height:46px}
 form{gap:8px;align-items:center}
 textarea{min-height:46px}
@@ -282,6 +286,7 @@ const T = {
     greetingName: (n) => `Sat Sri Akal, ${n}! How can I help you today?`,
     error: "Couldn’t reach Punjab AI. Check your connection and send again.",
     copy: "Copy", copied: "Copied", signout: "Sign out",
+    image: "Create image", imagePh: "Describe the image you want…", imageDone: "Here is your image.", download: "Download",
     gateT: "Sign in to start chatting", gateP: "Use your Google account. It takes one tap and there is no new password.",
     gateS: "We only use your name, email and photo. Chats stay in your browser.",
     chips: ["Tell me about the history of Punjab", "Help me write a polite email", "How do I make sarson da saag?"]
@@ -303,6 +308,7 @@ const T = {
     greetingName: (n) => `ਸਤ ਸ੍ਰੀ ਅਕਾਲ, ${n}! ਮੈਂ ਤੁਹਾਡੀ ਕੀ ਮਦਦ ਕਰ ਸਕਦਾ ਹਾਂ?`,
     error: "ਪੰਜਾਬ AI ਨਾਲ ਜੁੜ ਨਹੀਂ ਹੋਇਆ। ਆਪਣਾ ਕਨੈਕਸ਼ਨ ਚੈੱਕ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਭੇਜੋ।",
     copy: "ਕਾਪੀ", copied: "ਕਾਪੀ ਹੋ ਗਿਆ", signout: "ਸਾਈਨ ਆਊਟ",
+    image: "ਤਸਵੀਰ ਬਣਾਓ", imagePh: "ਜੋ ਤਸਵੀਰ ਚਾਹੀਦੀ ਹੈ ਉਸ ਦਾ ਵੇਰਵਾ ਲਿਖੋ…", imageDone: "ਇਹ ਹੈ ਤੁਹਾਡੀ ਤਸਵੀਰ।", download: "ਡਾਊਨਲੋਡ",
     gateT: "ਗੱਲਬਾਤ ਲਈ ਸਾਈਨ ਇਨ ਕਰੋ", gateP: "ਆਪਣਾ Google ਖਾਤਾ ਵਰਤੋ। ਇੱਕ ਟੈਪ ਦੀ ਗੱਲ ਹੈ, ਨਵਾਂ ਪਾਸਵਰਡ ਨਹੀਂ ਚਾਹੀਦਾ।",
     gateS: "ਅਸੀਂ ਸਿਰਫ਼ ਤੁਹਾਡਾ ਨਾਮ, ਈਮੇਲ ਤੇ ਫ਼ੋਟੋ ਵਰਤਦੇ ਹਾਂ। ਚੈਟਾਂ ਤੁਹਾਡੇ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਹੀ ਰਹਿੰਦੀਆਂ ਹਨ।",
     chips: ["ਪੰਜਾਬ ਦਾ ਇਤਿਹਾਸ ਦੱਸੋ", "ਇੱਕ ਈਮੇਲ ਲਿਖਣ ਵਿੱਚ ਮਦਦ ਕਰੋ", "ਸਰ੍ਹੋਂ ਦਾ ਸਾਗ ਕਿਵੇਂ ਬਣਾਈਏ?"]
@@ -421,6 +427,7 @@ function renderUser() {
   const box = $("userbox");
   box.innerHTML = "";
   if (!user) { box.hidden = true; return; }
+  $("gbtn-side").hidden = true;
   box.hidden = false;
   const info = document.createElement("div");
   info.className = "info";
@@ -453,7 +460,7 @@ function applyLang() {
 const greeting = () => (user ? T[lang].greetingName(user.name.split(" ")[0]) : T[lang].greeting);
 
 // ---------- voice ----------
-let speakOn = false, listening = false, rec = null, liveOn = false, liveRec = null, liveFails = 0;
+let speakOn = false, listening = false, rec = null, imageMode = false, liveOn = false, liveRec = null, liveFails = 0;
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 const canSpeak = "speechSynthesis" in window;
 
@@ -468,7 +475,7 @@ function refreshVoiceLabels() {
   $("lend").textContent = t.liveEnd;
   $("installBtn").textContent = "📲 " + t.install;
   if (typeof setLive === "function" && !$("live").hidden) setLive($("live").dataset.state);
-  if (!listening) input.placeholder = t.placeholder;
+  if (!listening) input.placeholder = imageMode ? t.imagePh : t.placeholder;
 }
 
 function speakable(t) {
@@ -554,6 +561,11 @@ async function send(text, opts = {}) {
   text = (text || "").trim();
   if (!text || busy) return;
   if (!opts.live) {
+    const m = text.match(/^\/(?:image|img)\s+([\s\S]+)/i);
+    if (m) return sendImage(m[1]);
+    if (imageMode) return sendImage(text);
+  }
+  if (!opts.live) {
   }
   busy = true;
   sendBtn.disabled = true;
@@ -573,7 +585,7 @@ async function send(text, opts = {}) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ messages: history, lang, voice: !!opts.live, stream: true })
     });
-    if (res.status === 401) { wait.remove(); history.pop(); user = null; renderUser(); showGate(); return; }
+    if (res.status === 401 && user) { wait.remove(); history.pop(); user = null; renderUser(); showGate(); return; }
     if (!(res.headers.get("content-type") || "").includes("text/event-stream")) {
       const data = await res.json();
       wait.remove();
@@ -621,6 +633,61 @@ async function send(text, opts = {}) {
     busy = false;
     sendBtn.disabled = false;
     if (!opts.live) input.focus();
+  }
+}
+
+// ---------- image generation ----------
+async function sendImage(prompt) {
+  prompt = (prompt || "").trim();
+  if (!prompt || busy) return;
+  busy = true;
+  sendBtn.disabled = true;
+  imageMode = false;
+  refreshVoiceLabels();
+  const label = "🎨 " + prompt;
+  history.push({ role: "user", content: label });
+  add(label, "user");
+  $("chips").innerHTML = "";
+  input.value = "";
+  input.style.height = "auto";
+  const wait = typingIndicator();
+  try {
+    const start = await fetch("api/image/start", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt })
+    });
+    const first = await start.json();
+    if (start.status === 401) { wait.remove(); history.pop(); return; }
+    if (!start.ok || (!first.id && !first.image)) throw new Error(first.error || "Request failed");
+    let data = first.image ? first : null;     // Google answered straight away
+    for (let i = 0; !data && i < 100; i++) {          // wait up to about 5 minutes
+      await new Promise((ok) => setTimeout(ok, 3000));
+      const pr = await fetch("api/image/status/" + first.id);
+      const p = await pr.json();
+      if (pr.status === 401) { wait.remove(); history.pop(); return; }
+      if (p.state === "error") throw new Error(p.error || "Request failed");
+      if (p.state === "done") { data = p; break; }
+    }
+    wait.remove();
+    if (!data) throw new Error("The image is taking too long. Please try again.");
+    const el = add(data.text || T[lang].imageDone, "bot");
+    const img = new Image();
+    img.src = data.image; img.alt = prompt; img.className = "genimg";
+    const dl = document.createElement("a");
+    dl.href = data.image; dl.download = "punjab-ai-image.png"; dl.className = "dl"; dl.textContent = "⬇ " + T[lang].download;
+    el.append(img, dl);
+    log.scrollTop = log.scrollHeight;
+    history.push({ role: "assistant", content: T[lang].imageDone + " (" + prompt + ")" });
+    saveChat();
+  } catch (e) {
+    wait.remove();
+    history.pop();
+    add(location.protocol === "file:" ? T[lang].fileNote : e.message && e.message !== "Request failed" && !/fetch/i.test(e.message) ? e.message : T[lang].error, "err");
+  } finally {
+    busy = false;
+    sendBtn.disabled = false;
+    input.focus();
   }
 }
 
@@ -687,14 +754,14 @@ function liveListen() {
 
 // ---------- Google sign-in gate ----------
 function showGate() {
-  $("gateOrigin").textContent = "Site address (add this to Google if you see origin_mismatch): " + location.origin;
-  const gate = $("gate"), err = $("gateErr");
-  err.hidden = true;
-  gate.hidden = false;
-  PAI.renderButton($("gbtn"), {
-    lang, width: 280,
-    onSignedIn: (u) => { user = u; gate.hidden = true; renderUser(); restore(); applyLang(); input.focus(); },
-    onError: (m) => { err.textContent = m; err.hidden = false; }
+  // Sign-in is optional: the chat always works. This only draws the Google button in the side panel.
+  $("gate").hidden = true;
+  const side = $("gbtn-side");
+  side.hidden = false;
+  PAI.renderButton(side, {
+    lang,
+    onSignedIn: (u) => { user = u; side.hidden = true; renderUser(); restore(); applyLang(); },
+    onError: (m) => { side.innerHTML = ""; const e = document.createElement("div"); e.className = "small"; e.textContent = m; side.appendChild(e); }
   });
 }
 
@@ -738,8 +805,7 @@ $("voiceOut").addEventListener("click", () => {
   applyLang();
   const st = await PAI.load();
   user = st.user;
-  if (st.clientId && !user) showGate();
-  else if (!user) PAI.renderButton($("gbtn-side"), { lang });
+  if (!user) showGate();
   restore();
   applyLang();
   // Deep links from the Image and Live voice pages: chat.html?mode=image or ?mode=live
