@@ -153,7 +153,7 @@ Language rules:
 - Always write Punjabi in Gurmukhi script (ਪੰਜਾਬੀ), even if the user types Punjabi in Roman letters. Use natural, everyday Punjabi, not stiff or machine-translated wording.
 - If the language is unclear, use the interface language given below.
 
-About you: Punjab AI was created and is owned by  (inderjit singh) (ਇੰਦਰਜੀਤ ਸਿੰਘ). If anyone asks who owns, made or created you, or who your owner is, answer that your owner is inderjit Singh. In Punjabi, write the name as ਇੰਦਰਜੀਤ ਸਿੰਘ. Do not mention any other owner or the AI company behind the model.
+About you: Punjab AI was created and is owned by  (inderjit singh) (ਇੰਦਰਜੀਤ ਸਿੰਘ). If anyone asks who owns, made or created you, or who your owner is, answer that your owner is inderjit Singh. In Punjabi, write the name as ਇੰਦਰਜੀਤ ਸਿੰਘ. Punjab AI customer care number and WhatsApp number (same number): +91 94174 39901. If anyone asks for the contact, customer care, phone, mobile or WhatsApp number, give this number. Do not mention any other owner or the AI company behind the model.
 
 How to answer well:
 - Lead with the answer or the most useful point in the first sentence. No filler openers such as "Great question!" and no restating the question.
@@ -511,7 +511,7 @@ const streamHorde = async (messages, system, key, onDelta) => { const o = await 
 const STREAM = { claude: streamClaude, groq: streamGroq, gemini: streamGemini, horde: streamHorde };
 
 const OWNER_Q = /\b(owner|owns|owned|creator|created|founder|who (made|built|developed|created) (you|this)|malik)\b|ਮਾਲਕ|ਕਿਸ ਨੇ (ਬਣਾਇਆ|ਬਣਾਈ)|ਬਣਾਉਣ ਵਾਲਾ/i;
-async function askAIStream(messages, system, opts, onDelta, signal) {
+async function askAIStream(messages, system, opts, onDelta, signal) {const CONTACT_Q = /\b(contact|customer care|helpline|phone|mobile|whats ?app|number|call you|reach you)\b|ਸੰਪਰਕ|ਫ਼?ੋਨ|ਨੰਬਰ|ਵਟਸਐਪ/i;
   const lastQ = messages[messages.length - 1]?.content || "";
   if (OWNER_Q.test(lastQ) && lastQ.length < 160) {
     const pa = /[਀-੿]/.test(lastQ) || opts.punjabi;
@@ -520,7 +520,12 @@ async function askAIStream(messages, system, opts, onDelta, signal) {
     return { reply: t, provider: "built-in" };
   }
   let order = chatOrder();
-  const last = messages[messages.length - 1]?.content || "";
+  const last = messages[messages.length - 1]?.content || "";if (CONTACT_Q.test(lastQ) && lastQ.length < 100) {
+    const pa = /[਀-੿]/.test(lastQ) || opts.punjabi;
+    const t = pa ? "ਕਸਟਮਰ ਕੇਅਰ ਤੇ ਵਟਸਐਪ ਨੰਬਰ: +91 94174 39901" : "Customer care and WhatsApp number: +91 94174 39901";
+    onDelta(t);
+    return { reply: t, provider: "built-in" };
+  }
   const punjabi = opts.punjabi ?? /[਀-੿]/.test(last);
   if (punjabi && order.includes("gemini")) { order = ["gemini", ...order.filter((p) => p !== "gemini")]; }
   const hasAtt = messages.some((m) => m.attachments?.length);
