@@ -1,0 +1,23 @@
+:root{--field:#F2BE1A;--field-2:#FFD55A;--ink:#0E1B26;--ink-2:#1B2D3C;--leaf:#1E5B47;--leaf-2:#2A7A60;--paper:#FFFFFF;--mist:#F5F6F8;--line:#E3E7EC;--muted:#556270;--radius:16px;--shadow:0 1px 2px rgba(14,27,38,.05),0 10px 30px rgba(14,27,38,.07)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Bricolage Grotesque","Noto Sans Gurmukhi",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+img{max-width:100%}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:#fff;gap:2px}
+.lang button{font:inherit;font-size:.88rem;font-weight:600;border:0;background:transparent;color:var(--muted);padding:5px 14px;cursor:pointer;border-radius:999px;transition:background .15s,color .15s}
+.lang button:hover{color:var(--ink);background:var(--mist)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.cta{font:inherit;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:12px;padding:13px 26px;cursor:pointer;transition:transform .15s,background .15s,box-shadow .15s,border-color .15s}
+.cta:hover{background:var(--ink-2);transform:translateY(-1px);box-shadow:0 8px 22px rgba(14,27,38,.22)}
+.cta.light{background:var(--field);border-color:var(--field);color:var(--ink)}
+.cta.light:hover{background:var(--field-2);box-shadow:0 8px 22px rgba(242,190,26,.4)}
+.cta.ghost{background:transparent;color:var(--ink);border-color:#C9D0D8}
+.cta.ghost:hover{background:var(--mist);box-shadow:none}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--leaf);color:#fff;display:inline-grid;place-items:center;font-weight:700;font-size:.95rem;overflow:hidden;flex:none}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--leaf-2);outline-offset:3px;border-radius:8px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+.gfake{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#1f1f1f;border:1px solid #747775;border-radius:999px;padding:8px 18px;font-weight:600;font-size:.92rem;text-decoration:none;font-family:Roboto,Arial,sans-serif}
+.gfake:hover{background:#f3f6fc;color:#1f1f1f}
+.gmsg{font-size:.9rem;color:#8A1C10}

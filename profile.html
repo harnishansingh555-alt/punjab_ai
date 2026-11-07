@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Profile and settings | Punjab AI | ਪੰਜਾਬ AI</title>
+<meta name="theme-color" content="#FFFFFF">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=Noto+Sans+Gurmukhi:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+:root[data-theme="dark"]{--paper:#172129;--mist:#0F1519;--line:#2A3944;--ink:#EEF3F7;--muted:#9FB0BD;--ink-2:#fff}
+:root[data-theme="dark"] body{background:var(--mist)}
+:root[data-theme="dark"] .bar,:root[data-theme="dark"] .card{background:var(--paper)}
+:root[data-theme="dark"] .lang{background:var(--paper)}
+:root[data-theme="dark"] input.f{background:#0F1519;color:var(--ink);border-color:var(--line)}
+:root[data-theme="dark"] .cta:not(.light):not(.ghost){background:var(--field);color:#0E1B26;border-color:var(--field)}
+body{background:var(--mist);min-height:100vh}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px clamp(16px,4vw,32px);background:#fff;border-bottom:1px solid var(--line)}
+.bar a.brand{display:inline-flex;align-items:center;gap:10px;font-weight:800;text-decoration:none}
+.bar a.brand img{width:34px;height:34px;border-radius:50%}
+.tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.linkbtn{font:inherit;background:none;border:0;color:var(--leaf);font-weight:600;cursor:pointer;padding:4px 0;text-decoration:underline}
+:root[data-theme="dark"] .linkbtn{color:var(--field)}
+main{max-width:720px;margin:0 auto;padding:28px clamp(16px,4vw,32px) 60px}
+h1{font-size:clamp(1.6rem,4vw,2.1rem);line-height:1.2;margin:0 0 20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:clamp(18px,4vw,26px);margin-bottom:18px}
+.card h2{margin:0 0 14px;font-size:1.15rem}
+.head{display:flex;align-items:center;gap:16px}
+.avatar.big{width:84px;height:84px;font-size:2rem}
+.head .nm{font-weight:800;font-size:1.25rem;overflow-wrap:anywhere}
+.head .em{color:var(--muted);overflow-wrap:anywhere}
+.rows{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:18px 0 0;font-size:.95rem}
+.rows dt{color:var(--muted)} .rows dd{margin:0;font-weight:600;overflow-wrap:anywhere}
+label{display:block;font-weight:600;font-size:.92rem;margin:0 0 6px}
+input.f{width:100%;font:inherit;padding:12px 16px;border:1px solid #C9D0D8;border-radius:12px;background:#fff;color:var(--ink)}
+input.f:focus{outline:3px solid var(--leaf-2);outline-offset:1px}
+.line{display:flex;gap:10px;align-items:stretch}
+.line .cta{white-space:nowrap}
+.set{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 0;border-top:1px solid var(--line)}
+.set:first-of-type{border-top:0;padding-top:0}
+.set span.l{font-weight:600}
+.pill{background:var(--mist);border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-size:.88rem;font-weight:600;display:inline-block;margin:2px 4px 2px 0}
+.msg{font-size:.9rem;margin:10px 0 0;border-radius:10px;padding:8px 12px}
+.msg.ok{color:#1E5B47;background:#E6F3EE}.msg.err{color:#8A1C10;background:#FBE9E7}
+.danger{border-color:#F0C9C4}
+.cta.red{background:#B3261E;border-color:#B3261E;color:#fff}.cta.red:hover{background:#8C1D18}
+.hint{color:var(--muted);font-size:.9rem;margin:0 0 12px}
+[hidden]{display:none!important}
+.cta[disabled]{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+</style>
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="bar">
+  <a class="brand" href="index.html"><img src="/favicon.svg" alt="">Punjab AI</a>
+  <div class="tools">
+    <a href="chat.html" class="linkbtn" data-t="chat">Open chat</a>
+    <a href="api-key.html" class="linkbtn" data-t="api">API key</a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" data-lang="pa" aria-pressed="false">ਪੰਜਾਬੀ</button>
+    </div>
+  </div>
+</div>
+<main>
+  <h1 data-t="title">Profile and settings</h1>
+
+  <div class="card">
+    <div class="head"><span id="av"></span><div><div class="nm" id="nm"></div><div class="em" id="em"></div></div></div>
+    <dl class="rows">
+      <dt data-t="method">Signed in with</dt><dd id="method"></dd>
+      <dt data-t="joined">Member since</dt><dd id="joined"></dd>
+    </dl>
+  </div>
+
+  <div class="card">
+    <h2 data-t="nameT">Your name</h2>
+    <label for="name" data-t="nameL">Name shown in Punjab AI</label>
+    <div class="line"><input class="f" id="name" maxlength="60" autocomplete="name"><button class="cta light" id="saveName" type="button" data-t="save">Save</button></div>
+    <div class="msg ok" id="nameOk" hidden></div><div class="msg err" id="nameErr" hidden></div>
+  </div>
+
+  <div class="card">
+    <h2 data-t="setT">Settings</h2>
+    <div class="set"><span class="l" data-t="langL">Language</span>
+      <div class="lang" role="group" id="langBox"><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="pa" aria-pressed="false">ਪੰਜਾਬੀ</button></div></div>
+    <div class="set"><span class="l" data-t="themeL">Theme</span>
+      <div class="lang" role="group" id="themeBox"><button type="button" data-theme="light" aria-pressed="true" data-t="light">Light</button><button type="button" data-theme="dark" aria-pressed="false" data-t="dark">Dark</button></div></div>
+  </div>
+
+  <div class="card">
+    <h2 data-t="keyT">Free API key</h2>
+    <div id="keyInfo"></div>
+    <p style="margin:12px 0 0"><a class="cta ghost" href="api-key.html" data-t="manage">Manage my API key</a></p>
+  </div>
+
+  <div class="card">
+    <h2 data-t="accT">Account</h2>
+    <p style="margin:0"><button class="cta ghost" id="out" type="button" data-t="signout">Sign out</button></p>
+  </div>
+
+  <div class="card danger">
+    <h2 data-t="delT">Delete my data</h2>
+    <p class="hint" data-t="delP">This removes your saved name and API key from our server and signs you out. Your chats are stored in your own browser, not on our server.</p>
+    <button class="cta red" id="del" type="button" data-t="del">Delete my data</button>
+    <div class="msg err" id="delErr" hidden></div>
+  </div>
+  <p style="text-align:center;color:var(--muted);font-size:.88rem" data-t="credit">Punjab AI is created by Panj Studio.</p>
+</main>
+<script src="auth.js"></script>
+<script>
+const T = {
+  en: { chat: "Open chat", api: "API key", title: "Profile and settings", method: "Signed in with", joined: "Member since", google: "Google", email: "Email code", nameT: "Your name", nameL: "Name shown in Punjab AI", save: "Save", saved: "Saved.", setT: "Settings", langL: "Language", themeL: "Theme", light: "Light", dark: "Dark", keyT: "Free API key", manage: "Manage my API key", accT: "Account", signout: "Sign out", delT: "Delete my data", delP: "This removes your saved name and API key from our server and signs you out. Your chats are stored in your own browser, not on our server.", del: "Delete my data", sure: "Delete your saved name and API key and sign out? This cannot be undone.", noKey: "You do not have an API key yet.", chatUse: (u, n) => `Chat today: ${u} / ${n}`, imgUse: (u, n) => `Images today: ${u} / ${n}`, net: "Could not reach the server. Try again.", credit: "Punjab AI is created by Panj Studio." },
+  pa: { chat: "ਚੈਟ ਖੋਲ੍ਹੋ", api: "API ਕੁੰਜੀ", title: "ਪ੍ਰੋਫ਼ਾਈਲ ਅਤੇ ਸੈਟਿੰਗਾਂ", method: "ਸਾਈਨ ਇਨ ਦਾ ਢੰਗ", joined: "ਮੈਂਬਰ ਬਣਿਆ", google: "Google", email: "ਈਮੇਲ ਕੋਡ", nameT: "ਤੁਹਾਡਾ ਨਾਮ", nameL: "ਪੰਜਾਬ AI ਵਿੱਚ ਦਿਖਾਇਆ ਜਾਣ ਵਾਲਾ ਨਾਮ", save: "ਸੰਭਾਲੋ", saved: "ਸੰਭਾਲ ਲਿਆ।", setT: "ਸੈਟਿੰਗਾਂ", langL: "ਭਾਸ਼ਾ", themeL: "ਥੀਮ", light: "ਹਲਕਾ", dark: "ਗੂੜ੍ਹਾ", keyT: "ਮੁਫ਼ਤ API ਕੁੰਜੀ", manage: "ਮੇਰੀ API ਕੁੰਜੀ ਸੰਭਾਲੋ", accT: "ਖਾਤਾ", signout: "ਸਾਈਨ ਆਊਟ", delT: "ਮੇਰਾ ਡੇਟਾ ਮਿਟਾਓ", delP: "ਇਹ ਸਾਡੇ ਸਰਵਰ ਤੋਂ ਤੁਹਾਡਾ ਸੰਭਾਲਿਆ ਨਾਮ ਅਤੇ API ਕੁੰਜੀ ਹਟਾ ਦੇਵੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਸਾਈਨ ਆਊਟ ਕਰ ਦੇਵੇਗਾ। ਤੁਹਾਡੀਆਂ ਚੈਟਾਂ ਤੁਹਾਡੇ ਆਪਣੇ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਹਨ, ਸਾਡੇ ਸਰਵਰ ਉੱਤੇ ਨਹੀਂ।", del: "ਮੇਰਾ ਡੇਟਾ ਮਿਟਾਓ", sure: "ਸੰਭਾਲਿਆ ਨਾਮ ਅਤੇ API ਕੁੰਜੀ ਮਿਟਾ ਕੇ ਸਾਈਨ ਆਊਟ ਕਰਨਾ ਹੈ? ਇਹ ਵਾਪਸ ਨਹੀਂ ਹੋ ਸਕਦਾ।", noKey: "ਤੁਹਾਡੇ ਕੋਲ ਹਾਲੇ ਕੋਈ API ਕੁੰਜੀ ਨਹੀਂ ਹੈ।", chatUse: (u, n) => `ਅੱਜ ਚੈਟ: ${u} / ${n}`, imgUse: (u, n) => `ਅੱਜ ਤਸਵੀਰਾਂ: ${u} / ${n}`, net: "ਸਰਵਰ ਨਹੀਂ ਮਿਲਿਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।", credit: "ਪੰਜਾਬ AI ਨੂੰ ਪੰਜ ਸਟੂਡੀਓ ਨੇ ਬਣਾਇਆ ਹੈ।" }
+};
+const $ = (id) => document.getElementById(id);
+let lang = "en"; try { lang = localStorage.getItem("lang") === "pa" ? "pa" : "en"; } catch (e) {}
+let me = null;
+const theme = () => document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+
+function paint() {
+  const t = T[lang];
+  document.documentElement.lang = lang === "pa" ? "pa" : "en";
+  document.querySelectorAll("[data-t]").forEach((el) => { if (typeof t[el.dataset.t] === "string") el.textContent = t[el.dataset.t]; });
+  document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  document.querySelectorAll("[data-theme]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.theme === theme())));
+  if (!me) return;
+  $("method").textContent = me.method === "email" ? t.email : t.google;
+  $("joined").textContent = me.joined ? new Date(me.joined).toLocaleDateString(lang === "pa" ? "pa-IN" : "en-GB", { day: "numeric", month: "long", year: "numeric" }) : "-";
+  const k = me.key, box = $("keyInfo"); box.innerHTML = "";
+  if (!k.has) { const p = document.createElement("p"); p.style.cssText = "margin:0;color:var(--muted)"; p.textContent = t.noKey; box.append(p); return; }
+  for (const x of [k.prefix + "••••••••", t.chatUse(k.used, k.limit), t.imgUse(k.imageUsed, k.imageLimit)]) { const s = document.createElement("span"); s.className = "pill"; s.textContent = x; box.append(s); }
+}
+function showMe() {
+  $("av").innerHTML = ""; $("av").append(PAI.avatar({ name: me.name, email: me.email, picture: me.picture }, "avatar big"));
+  $("nm").textContent = me.name; $("em").textContent = me.email; $("name").value = me.name;
+  paint();
+}
+document.querySelectorAll(".lang [data-lang]").forEach((b) => b.addEventListener("click", () => { lang = b.dataset.lang; try { localStorage.setItem("lang", lang); } catch (e) {} paint(); }));
+document.querySelectorAll("[data-theme]").forEach((b) => b.addEventListener("click", () => { document.documentElement.dataset.theme = b.dataset.theme; try { localStorage.setItem("theme", b.dataset.theme); } catch (e) {} paint(); }));
+
+$("saveName").addEventListener("click", async () => {
+  $("nameOk").hidden = $("nameErr").hidden = true;
+  try {
+    const r = await fetch("api/profile", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: $("name").value }) });
+    const d = await r.json().catch(() => ({}));
+    if (r.status === 401) return location.replace("login.html?next=profile.html");
+    if (!r.ok) throw new Error(d.error || T[lang].net);
+    me.name = d.name; showMe(); $("nameOk").textContent = T[lang].saved; $("nameOk").hidden = false;
+  } catch (e) { $("nameErr").textContent = e.message || T[lang].net; $("nameErr").hidden = false; }
+});
+$("out").addEventListener("click", async () => { await PAI.logout(); location.replace("login.html"); });
+$("del").addEventListener("click", async () => {
+  if (!confirm(T[lang].sure)) return;
+  $("delErr").hidden = true;
+  try {
+    const r = await fetch("api/account", { method: "DELETE" });
+    if (!r.ok) throw new Error((await r.json().catch(() => ({}))).error || T[lang].net);
+    try { google.accounts.id.disableAutoSelect(); } catch (e) {}
+    location.replace("login.html");
+  } catch (e) { $("delErr").textContent = e.message || T[lang].net; $("delErr").hidden = false; }
+});
+
+(async function () {
+  paint();
+  try {
+    const r = await fetch("api/profile");
+    if (r.status === 401) return location.replace("login.html?next=profile.html");
+    me = await r.json();
+  } catch (e) { $("nameErr").textContent = T[lang].net; $("nameErr").hidden = false; return; }
+  showMe();
+})();
+</script>
+</body>
+</html>
