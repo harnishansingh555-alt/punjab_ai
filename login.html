@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta property="og:site_name" content="Punjab AI">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Punjab AI | Free Punjabi and English chat, image maker, free API key</title>
+<meta name="description" content="Punjab AI is a free AI chatbot that talks in Punjabi and English. Create images from text and get a free API key for your own website or app.">
+<meta name="theme-color" content="#05030F">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Punjab AI","alternateName":["ਪੰਜਾਬ AI","Punjab AI Chatbot"],"url":"https://punjab-ai.website/","inLanguage":["en","pa"],"description":"Punjab AI is a free AI chatbot that talks in Punjabi and English. Create images from text and get a free API key for your own website or app."}</script>
+<meta property="og:title" content="Punjab AI | Free Punjabi and English chat, image maker, free API key">
+<meta property="og:description" content="Punjab AI is a free AI chatbot that talks in Punjabi and English. Create images from text and get a free API key for your own website or app.">
+<link rel="canonical" href="https://punjab-ai.website/login">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=Noto+Sans+Gurmukhi:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:radial-gradient(900px 420px at 50% -10%,rgba(242,190,26,.28),transparent 70%),var(--mist)}
+.top{display:flex;justify-content:flex-end;padding:16px clamp(16px,4vw,32px)}
+main{flex:1;display:grid;place-items:center;padding:8px 16px 40px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:clamp(24px,5vw,40px);width:100%;max-width:440px;text-align:center}
+.card img.logo{width:72px;height:72px;border-radius:50%}
+h1{margin:14px 0 6px;font-size:1.65rem;line-height:1.2}
+.sub{margin:0 0 22px;color:var(--muted)}
+label{display:block;text-align:left;font-weight:600;font-size:.92rem;margin:0 0 6px}
+input.f{width:100%;font:inherit;padding:13px 16px;border:1px solid #C9D0D8;border-radius:12px;background:#fff;color:var(--ink)}
+input.f:focus{outline:3px solid var(--leaf-2);outline-offset:1px;border-color:var(--leaf-2)}
+input.code{text-align:center;font-size:1.8rem;letter-spacing:.5em;padding-left:.5em;font-weight:700}
+.card .cta{width:100%;margin-top:14px}
+.cta[disabled]{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.88rem;margin:22px 0}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+#gbtn{display:flex;justify-content:center;min-height:44px}
+.err{color:#8A1C10;background:#FBE9E7;border-radius:10px;padding:9px 12px;margin:14px 0 0;font-size:.92rem;text-align:left}
+.ok{color:#1E5B47;background:#E6F3EE;border-radius:10px;padding:9px 12px;margin:0 0 14px;font-size:.92rem;text-align:left}
+[hidden]{display:none!important}
+.row{display:flex;justify-content:space-between;gap:10px;margin-top:14px;font-size:.92rem}
+.linkbtn{font:inherit;background:none;border:0;color:var(--leaf);font-weight:600;cursor:pointer;padding:4px 0;text-decoration:underline}
+.linkbtn[disabled]{color:var(--muted);text-decoration:none;cursor:default}
+.small{margin:22px 0 0;font-size:.82rem;color:var(--muted)}
+.pagelinks{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 18px;padding:0 16px calc(28px + env(safe-area-inset-bottom))}.pagelinks a{color:var(--muted);font-weight:600;font-size:.95rem;text-decoration:none;padding:10px 4px}.pagelinks a:hover{color:var(--ink);text-decoration:underline}
+.aboutline{max-width:520px;margin:0 auto;padding:0 20px calc(28px + env(safe-area-inset-bottom));text-align:center;color:var(--muted);font-size:.92rem}
+</style>
+<link rel="stylesheet" href="/responsive.css">
+<link rel="stylesheet" href="/theme.css">
+<link rel="stylesheet" href="/galaxy.css">
+<script src="/theme.js"></script>
+<script src="/galaxy.js"></script>
+</head>
+<body>
+<div class="top"><div class="lang" role="group" aria-label="Language">
+  <button type="button" data-lang="en" aria-pressed="true">English</button>
+  <button type="button" data-lang="pa" aria-pressed="false">ਪੰਜਾਬੀ</button>
+</div></div>
+<main><div class="card">
+  <img class="logo" src="/favicon.svg" alt="Punjab AI">
+  <h1 data-t="title">Sign in to Punjab AI</h1>
+  <p class="sub" data-t="sub">Enter your email and we will send you a 6-digit code. No password needed.</p>
+
+  <form id="emailForm" novalidate>
+    <label for="email" data-t="emailL">Email address</label>
+    <input class="f" id="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required>
+    <button class="cta light" id="sendBtn" type="submit" data-t="send">Send me a code</button>
+  </form>
+
+  <form id="codeForm" novalidate hidden>
+    <div class="ok" id="sentMsg"></div>
+    <label for="code" data-t="codeL">6-digit code</label>
+    <input class="f code" id="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="······" pattern="[0-9]*">
+    <button class="cta" id="verifyBtn" type="submit" data-t="verify">Verify and continue</button>
+    <div class="row">
+      <button class="linkbtn" id="resendBtn" type="button" data-t="resend">Send a new code</button>
+      <button class="linkbtn" id="changeBtn" type="button" data-t="change">Use a different email</button>
+    </div>
+  </form>
+
+  <div class="err" id="err" role="alert" hidden></div>
+
+  <div class="or" data-t="or">or</div>
+  <div id="gbtn"></div>
+
+  <p class="small" style="margin-top:14px"><span data-t="credit">Punjab AI is created by Panj Studio.</span></p>
+  <p class="small" style="margin-top:6px"><span data-t="agree">By continuing you agree to our</span> <a href="terms.html" data-t="terms">Terms</a> &amp; <a href="privacy.html" data-t="privacy">Privacy</a>.</p>
+</div></main>
+<nav class="pagelinks" aria-label="Pages"><a href="features.html" data-t="nFeatures">Features</a><a href="help.html" data-t="nHelp">How to use</a><a href="about.html" data-t="nAbout">About</a><a href="faq.html" data-t="nFaq">FAQ</a><a href="contact.html" data-t="nContact">Contact</a></nav>
+<p class="aboutline" data-t="aboutLine">Punjab AI is a free AI chatbot in Punjabi and English. It also creates images from text and gives you a free API key.</p>
+<script src="auth.js"></script>
+<script>
+const T = {
+  en: { aboutLine: "Punjab AI is a free AI chatbot in Punjabi and English. It also creates images from text and gives you a free API key.", nHome: "Home", nFeatures: "Features", nHelp: "How to use", nAbout: "About", nFaq: "FAQ", nContact: "Contact", title: "Sign in to Punjab AI", sub: "Enter your email and we will send you a 6-digit code. No password needed.", emailL: "Email address", send: "Send me a code", codeL: "6-digit code", verify: "Verify and continue", resend: "Send a new code", change: "Use a different email", or: "or", agree: "By continuing you agree to our", terms: "Terms", privacy: "Privacy", credit: "Punjab AI is created by Panj Studio.",
+        sent: "We sent a code to ", wait: "New code in ", sending: "Sending...", checking: "Checking...", bad: "Enter a valid email address.", badCode: "Enter the 6-digit code.", net: "Could not reach the server. Check your internet and try again." },
+  pa: { aboutLine: "ਪੰਜਾਬ AI ਪੰਜਾਬੀ ਅਤੇ ਅੰਗਰੇਜ਼ੀ ਵਿੱਚ ਗੱਲ ਕਰਨ ਵਾਲਾ ਮੁਫ਼ਤ AI ਚੈਟਬੋਟ ਹੈ। ਇਹ ਲਿਖਤ ਤੋਂ ਤਸਵੀਰਾਂ ਵੀ ਬਣਾਉਂਦਾ ਹੈ ਅਤੇ ਮੁਫ਼ਤ API key ਦਿੰਦਾ ਹੈ।", nHome: "ਮੁੱਖ ਪੰਨਾ", nFeatures: "ਖ਼ੂਬੀਆਂ", nHelp: "ਵਰਤੋਂ ਕਿਵੇਂ ਕਰੀਏ", nAbout: "ਸਾਡੇ ਬਾਰੇ", nFaq: "ਸਵਾਲ-ਜਵਾਬ", nContact: "ਸੰਪਰਕ", title: "ਪੰਜਾਬ AI ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ", sub: "ਆਪਣੀ ਈਮੇਲ ਦਿਓ, ਅਸੀਂ ਤੁਹਾਨੂੰ 6 ਅੰਕਾਂ ਦਾ ਕੋਡ ਭੇਜਾਂਗੇ। ਪਾਸਵਰਡ ਦੀ ਲੋੜ ਨਹੀਂ।", emailL: "ਈਮੇਲ ਪਤਾ", send: "ਮੈਨੂੰ ਕੋਡ ਭੇਜੋ", codeL: "6 ਅੰਕਾਂ ਦਾ ਕੋਡ", verify: "ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਅੱਗੇ ਵਧੋ", resend: "ਨਵਾਂ ਕੋਡ ਭੇਜੋ", change: "ਹੋਰ ਈਮੇਲ ਵਰਤੋ", or: "ਜਾਂ", agree: "ਅੱਗੇ ਵਧ ਕੇ ਤੁਸੀਂ ਸਾਡੀਆਂ", terms: "ਸ਼ਰਤਾਂ", privacy: "ਗੋਪਨੀਯਤਾ", credit: "ਪੰਜਾਬ AI ਨੂੰ ਪੰਜ ਸਟੂਡੀਓ ਨੇ ਬਣਾਇਆ ਹੈ।",
+        sent: "ਅਸੀਂ ਕੋਡ ਭੇਜਿਆ ਹੈ: ", wait: "ਨਵਾਂ ਕੋਡ: ", sending: "ਭੇਜ ਰਹੇ ਹਾਂ...", checking: "ਜਾਂਚ ਰਹੇ ਹਾਂ...", bad: "ਸਹੀ ਈਮੇਲ ਪਤਾ ਲਿਖੋ।", badCode: "6 ਅੰਕਾਂ ਦਾ ਕੋਡ ਲਿਖੋ।", net: "ਸਰਵਰ ਨਹੀਂ ਮਿਲਿਆ। ਇੰਟਰਨੈੱਟ ਜਾਂਚੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।" }
+};
+const $ = (id) => document.getElementById(id);
+let lang = "en"; try { lang = localStorage.getItem("lang") === "pa" ? "pa" : "en"; } catch (e) {}
+const next = (() => { const n = new URLSearchParams(location.search).get("next") || "chat.html"; return /^[a-z0-9-]+\.html$/i.test(n) ? n : "chat.html"; })();
+let email = "", timer = null;
+const done = () => location.replace(next);
+const showErr = (m) => { $("err").textContent = m; $("err").hidden = false; };
+const clearErr = () => { $("err").hidden = true; };
+
+function setLang(l, save) {
+  lang = l; document.documentElement.lang = l === "pa" ? "pa" : "en";
+  document.querySelectorAll("[data-t]").forEach((el) => { if (!(el.id === "resendBtn" && el.disabled)) el.textContent = T[l][el.dataset.t]; });
+  document.querySelectorAll(".lang button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
+  if (email) $("sentMsg").textContent = T[l].sent + email;
+  if (save) { try { localStorage.setItem("lang", l); } catch (e) {} drawGoogle(); }
+}
+document.querySelectorAll(".lang button").forEach((b) => b.addEventListener("click", () => setLang(b.dataset.lang, true)));
+
+async function post(url, body) {
+  try {
+    const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    const d = await r.json().catch(() => ({}));
+    return { ok: r.ok, d };
+  } catch (e) { return { ok: false, d: { error: T[lang].net } }; }
+}
+
+function cooldown(sec) {
+  clearInterval(timer);
+  const b = $("resendBtn"); b.disabled = true;
+  const tick = () => { if (sec <= 0) { clearInterval(timer); b.disabled = false; b.textContent = T[lang].resend; return; } b.textContent = T[lang].wait + sec + "s"; sec--; };
+  tick(); timer = setInterval(tick, 1000);
+}
+
+async function sendCode() {
+  clearErr();
+  const v = $("email").value.trim().toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return showErr(T[lang].bad);
+  const btn = $("sendBtn"); btn.disabled = true; btn.textContent = T[lang].sending;
+  const { ok, d } = await post("api/auth/email/send", { email: v, lang });
+  btn.disabled = false; btn.textContent = T[lang].send;
+  if (!ok) { if (d.wait && email === v) cooldown(d.wait); return showErr(d.error || T[lang].net); }
+  email = v;
+  $("sentMsg").textContent = T[lang].sent + email;
+  $("emailForm").hidden = true; $("codeForm").hidden = false;
+  $("code").value = ""; $("code").focus();
+  cooldown(60);
+}
+$("emailForm").addEventListener("submit", (e) => { e.preventDefault(); sendCode(); });
+$("resendBtn").addEventListener("click", () => { if (!$("resendBtn").disabled) { $("email").value = email; sendCode(); } });
+$("changeBtn").addEventListener("click", () => { clearErr(); clearInterval(timer); email = ""; $("codeForm").hidden = true; $("emailForm").hidden = false; $("email").focus(); });
+
+async function verify() {
+  clearErr();
+  const code = $("code").value.replace(/\D/g, "");
+  if (code.length !== 6) return showErr(T[lang].badCode);
+  const btn = $("verifyBtn"); btn.disabled = true; btn.textContent = T[lang].checking;
+  const { ok, d } = await post("api/auth/email/verify", { email, code });
+  if (ok) return done();
+  btn.disabled = false; btn.textContent = T[lang].verify;
+  showErr(d.error || T[lang].net);
+  $("code").select();
+}
+$("codeForm").addEventListener("submit", (e) => { e.preventDefault(); verify(); });
+$("code").addEventListener("input", () => { $("code").value = $("code").value.replace(/\D/g, "").slice(0, 6); if ($("code").value.length === 6) verify(); });
+
+function drawGoogle() { PAI.renderButton($("gbtn"), { lang, onSignedIn: done, onError: showErr }); }
+setLang(lang, false);
+PAI.load().then((st) => { if (st.user) return done(); drawGoogle(); });
+</script>
+</body>
+</html>

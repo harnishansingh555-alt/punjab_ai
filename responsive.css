@@ -1,0 +1,48 @@
+/* Punjab AI: shared responsive layer for phone, tablet and PC.
+   Linked last on every page, so it only adds safe fixes and never changes the look. */
+
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-x:hidden;padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+img,video,canvas,iframe{max-width:100%}
+img,video{height:auto}
+h1,h2,h3,p,li,summary{overflow-wrap:break-word}
+pre{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+code,.keybox code{overflow-wrap:anywhere}
+.keybox{flex-wrap:wrap}
+table{display:block;max-width:100%;overflow-x:auto}
+
+/* Sticky headers stay clear of the iPhone notch */
+header.site,.topbar,.top{padding-top:env(safe-area-inset-top)}
+
+/* Phone and tablet: bigger tap targets, no zoom when typing */
+@media (pointer:coarse){
+  .cta,.lang button,.menubtn,#menu a,.navlinks a,summary,.loginbtn,.pillbtn{min-height:44px}
+  .card:hover{transform:none;box-shadow:none}
+}
+@media (max-width:860px){
+  input,select,textarea{font-size:16px}
+}
+
+/* Tablet */
+@media (min-width:601px) and (max-width:1024px){
+  .wrap{padding-left:clamp(20px,4vw,40px);padding-right:clamp(20px,4vw,40px)}
+  .actions{gap:14px}
+}
+
+/* Phone */
+@media (max-width:600px){
+  body{font-size:16px}
+  .cta{white-space:normal;text-align:center}
+  .lang button{padding:6px 12px}
+  footer,.sitefoot{padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+}
+
+/* Short landscape phones */
+@media (max-height:480px) and (orientation:landscape){
+  header.site{position:static}
+}
+
+/* Big PC screens */
+@media (min-width:1600px){
+  .wrap{max-width:1280px}
+}

@@ -1,0 +1,108 @@
+/* Punjab AI: animated professional theme. Dark navy, saffron and blue accents.
+   Loaded last on every page. Dark theme only. */
+
+:root[data-theme="dark"]{
+  --ink:#EAF0FF;--ink-2:#FFFFFF;--paper:#0F1731;--mist:#0A1128;--line:rgba(255,255,255,.10);
+  --muted:#9DABCC;--bg:#060A18;--side:#080E22;--field:#FFB347;--field-2:#FFD27A;
+  --leaf:#5B9BFF;--leaf-2:#7DB2FF;--code:#050914;--shadow:0 14px 44px rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+html{background:#060A18}
+body{position:relative}
+
+/* ---------- moving background ---------- */
+.aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(90px);opacity:.34;will-change:transform;animation:drift 24s ease-in-out infinite alternate}
+.aurora i:nth-child(1){left:-18vmax;top:-20vmax;background:radial-gradient(circle,#FF9933,transparent 68%)}
+.aurora i:nth-child(2){right:-22vmax;top:8vmax;background:radial-gradient(circle,#2F6BFF,transparent 68%);animation-duration:30s;animation-delay:-8s}
+.aurora i:nth-child(3){left:18vw;bottom:-30vmax;background:radial-gradient(circle,#5B3DF5,transparent 68%);animation-duration:36s;animation-delay:-14s;opacity:.26}
+:root[data-theme="dark"] body{background:transparent;color:var(--ink)}
+:root[data-theme="dark"] .hero{background:none}
+:root[data-theme="dark"] .block,:root[data-theme="dark"] main,:root[data-theme="dark"] footer{background:transparent}
+
+/* ---------- header ---------- */
+:root[data-theme="dark"] header.site,:root[data-theme="dark"] .bar{background:rgba(6,10,24,.72);-webkit-backdrop-filter:saturate(1.5) blur(16px);backdrop-filter:saturate(1.5) blur(16px);border-bottom:1px solid var(--line)}
+:root[data-theme="dark"] .navlinks a{color:var(--muted)}
+:root[data-theme="dark"] .navlinks a:hover{background:rgba(255,255,255,.07);color:#fff}
+:root[data-theme="dark"] .menubtn{background:rgba(255,255,255,.06);border-color:var(--line);color:var(--ink)}
+@media (max-width:1000px){:root[data-theme="dark"] .navlinks{background:#0B1230;border-color:var(--line)}}
+.brand img{animation:floaty 6s ease-in-out infinite}
+
+/* ---------- text ---------- */
+:root[data-theme="dark"] h1,:root[data-theme="dark"] h2,:root[data-theme="dark"] h3{color:#fff}
+.hero h1 span[lang]{background:linear-gradient(100deg,#fff 10%,#FFC247 38%,#5B9BFF 64%,#fff 90%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shine 9s linear infinite}
+:root[data-theme="dark"] .badge{background:rgba(255,153,51,.12);border-color:rgba(255,153,51,.4);color:#FFD9A8}
+
+/* ---------- buttons ---------- */
+:root[data-theme="dark"] .cta,:root[data-theme="dark"] .loginbtn{background:linear-gradient(135deg,#FF9933,#FFC247);color:#1A1204;border:0;box-shadow:0 8px 30px -8px rgba(255,153,51,.6);transition:transform .25s,box-shadow .25s}
+:root[data-theme="dark"] .cta:hover,:root[data-theme="dark"] .loginbtn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 16px 42px -8px rgba(255,153,51,.8)}
+:root[data-theme="dark"] .cta:active,:root[data-theme="dark"] .loginbtn:active{transform:scale(.97)}
+:root[data-theme="dark"] .loginbtn{animation:glow 3.2s ease-in-out infinite}
+:root[data-theme="dark"] .cta.ghost{background:rgba(255,255,255,.04);color:var(--ink);border:1px solid rgba(255,255,255,.2);box-shadow:none}
+:root[data-theme="dark"] .cta.ghost:hover{border-color:#5B9BFF;box-shadow:0 0 34px -6px rgba(91,155,255,.6)}
+:root[data-theme="dark"] .lang{background:rgba(255,255,255,.05);border-color:var(--line)}
+:root[data-theme="dark"] .lang button{color:var(--muted)}
+:root[data-theme="dark"] .lang button[aria-pressed="true"]{background:linear-gradient(135deg,#2F6BFF,#5B9BFF);color:#fff}
+:root[data-theme="dark"] .linkbtn,:root[data-theme="dark"] .pillbtn{color:var(--ink);border-color:var(--line)}
+:root[data-theme="dark"] .pillbtn{background:rgba(255,255,255,.05)}
+
+/* ---------- cards ---------- */
+:root[data-theme="dark"] .card,:root[data-theme="dark"] details,:root[data-theme="dark"] .demo,:root[data-theme="dark"] .social a,:root[data-theme="dark"] .rows,:root[data-theme="dark"] .keybox{
+  background:rgba(255,255,255,.045);border:1px solid var(--line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.card{transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s,border-color .4s}
+:root[data-theme="dark"] .card:hover{transform:translateY(-6px);border-color:rgba(255,153,51,.55);box-shadow:0 22px 54px -14px rgba(255,153,51,.32),0 0 0 1px rgba(255,153,51,.22)}
+:root[data-theme="dark"] .card .ic{background:rgba(255,153,51,.13)}
+:root[data-theme="dark"] details[open]{border-color:rgba(91,155,255,.5)}
+:root[data-theme="dark"] .closing{background:linear-gradient(135deg,rgba(47,107,255,.22),rgba(255,153,51,.2));border:1px solid var(--line)}
+
+/* ---------- home chat preview (types by itself) ---------- */
+:root[data-theme="dark"] .demo{box-shadow:0 30px 80px -20px rgba(47,107,255,.45),0 0 0 1px rgba(255,255,255,.05);animation:floaty 7s ease-in-out infinite}
+:root[data-theme="dark"] .dh{background:rgba(255,255,255,.04);border-color:var(--line)}
+:root[data-theme="dark"] .demo .u{background:linear-gradient(135deg,#2F6BFF,#5B9BFF);color:#fff}
+:root[data-theme="dark"] .demo .b{background:rgba(255,255,255,.08);color:var(--ink)}
+:root[data-theme="dark"] .dbar{background:rgba(255,255,255,.05);border-color:var(--line);color:var(--muted)}
+.demo .typing::after{content:"";display:inline-block;width:2px;height:1em;margin-left:3px;vertical-align:-.15em;background:#FFB347;animation:blink .8s steps(2) infinite}
+
+/* ---------- forms, code, tables ---------- */
+:root[data-theme="dark"] input,:root[data-theme="dark"] textarea,:root[data-theme="dark"] select{background:rgba(255,255,255,.06);color:var(--ink);border:1px solid rgba(255,255,255,.16)}
+:root[data-theme="dark"] input:focus,:root[data-theme="dark"] textarea:focus{outline:none;border-color:#5B9BFF;box-shadow:0 0 0 4px rgba(91,155,255,.25)}
+:root[data-theme="dark"] pre,:root[data-theme="dark"] code{background:var(--code);color:#CFE0FF}
+:root[data-theme="dark"] a{color:var(--leaf-2)}
+:root[data-theme="dark"] .cta,:root[data-theme="dark"] .loginbtn,:root[data-theme="dark"] .navlinks a,:root[data-theme="dark"] .brand,:root[data-theme="dark"] .linkbtn{color:inherit}
+:root[data-theme="dark"] .cta,:root[data-theme="dark"] .loginbtn{color:#1A1204}
+
+/* ---------- motion: scroll reveal, page fade, keyframes ---------- */
+body{animation:pageIn .6s ease both}
+body.leaving{opacity:0;transform:translateY(-8px);transition:opacity .22s ease,transform .22s ease}
+html.js .reveal{opacity:0;transform:translateY(30px) scale(.985);transition:opacity .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+html.js .reveal.in{opacity:1;transform:none}
+@keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(6vmax,5vmax,0) scale(1.18)}}
+@keyframes shine{to{background-position:-260% 0}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes glow{0%,100%{box-shadow:0 8px 30px -8px rgba(255,153,51,.5)}50%{box-shadow:0 8px 40px -4px rgba(255,153,51,.95)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+@media (max-width:700px){.aurora i{filter:blur(60px);opacity:.26}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html.js .reveal{opacity:1!important;transform:none!important}
+}
+html.noanim *,html.noanim *::before,html.noanim *::after{animation:none!important;transition:none!important}
+html.noanim .reveal{opacity:1!important;transform:none!important}
+
+/* ---------- shared inner pages (features, about, help, faq, contact, privacy, terms) ---------- */
+:root[data-theme="dark"] .phero{background:radial-gradient(900px 360px at 85% -20%,rgba(255,153,51,.16),transparent 70%),radial-gradient(700px 320px at 0% 110%,rgba(47,107,255,.18),transparent 70%);border-bottom:1px solid var(--line)}
+:root[data-theme="dark"] .prose p,:root[data-theme="dark"] .prose li{color:#C3CEE8}
+:root[data-theme="dark"] .examples li,:root[data-theme="dark"] section.alt .card,:root[data-theme="dark"] .faq details{background:rgba(255,255,255,.045);border:1px solid var(--line);color:var(--ink)}
+:root[data-theme="dark"] .ticks li::before{background:rgba(91,155,255,.2);color:#9CC2FF}
+:root[data-theme="dark"] .card:hover{border-color:rgba(255,153,51,.55)}
+:root[data-theme="dark"] .cta-band{background:linear-gradient(135deg,rgba(47,107,255,.28),rgba(255,153,51,.26));border:1px solid var(--line)}
+:root[data-theme="dark"] .sitefoot{background:rgba(4,7,18,.7);border-top:1px solid var(--line)}
+:root[data-theme="dark"] .hero h1 small{background:rgba(255,153,51,.14);color:#FFB347;border:1px solid rgba(255,153,51,.5)}
+:root[data-theme="dark"] .phero h1,:root[data-theme="dark"] .phero .lead{color:#fff}
+:root[data-theme="dark"] .phero .lead{color:var(--muted)}
+:root[data-theme="dark"] .topbar{background:rgba(6,10,24,.72);-webkit-backdrop-filter:saturate(1.5) blur(16px);backdrop-filter:saturate(1.5) blur(16px);border-bottom:1px solid var(--line)}
+:root[data-theme="dark"] .topbar a:not(.cta){color:var(--muted)}
+:root[data-theme="dark"] .topbar a:not(.cta):hover,:root[data-theme="dark"] .topbar a[aria-current="page"]{color:#fff}
+:root[data-theme="dark"] .menubtn{background:rgba(255,255,255,.06)}
